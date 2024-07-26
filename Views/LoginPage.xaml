@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:viewmodels="clr-namespace:Memory_App.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Memory_App.LoginPage"
+             x:DataType="viewmodels:LoginViewModel"
+             >
+
+    <ScrollView>
+        <!--<VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            --><!--<Label
+            Text="Home"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"
+            HorizontalOptions="Center" />--><!--
+            
+            <Image
+                Source="login.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text="Login"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry
+                x:Name="UsernameEntry"
+                Placeholder="Username"
+                SemanticProperties.Description="Enter your username" />
+
+            <Entry
+                x:Name="PasswordEntry"
+                Placeholder="Password"
+                IsPassword="True"
+                SemanticProperties.Description="Enter your password" />
+
+            <Button
+                x:Name="LoginBtn"
+                Text="Login" 
+                SemanticProperties.Hint="Login to your account"
+                Clicked="OnLoginClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>-->
+
+        <StackLayout>
+            <Label Text="Email"/>
+            <Entry x:Name="Email" Placeholder="Email Address" Text="{Binding Email}"/>
+
+            <Label Text="Password"/>
+            <Entry x:Name="Password" Placeholder="Password" Text="{Binding Password}" IsPassword="True"/>
+
+            <Button Text="Sign-In" Command="{Binding SignInCommand}"/>
+            <Button Text="Create New Account" Command="{Binding SignUpCommand}"/>
+
+            <Label x:Name="Result"  Text="{Binding Message}"/>
+
+        </StackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
