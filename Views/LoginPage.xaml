@@ -7,7 +7,7 @@
              >
 
     <ScrollView>
-        <VerticalStackLayout
+        <!--<VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
@@ -45,9 +45,9 @@
                 SemanticProperties.Hint="Login to your account"
                 Clicked="OnLoginClicked"
                 HorizontalOptions="Fill" />
-        </VerticalStackLayout>
+        </VerticalStackLayout>-->
 
-        <!--<StackLayout>
+        <StackLayout>
             <Label Text="Email"/>
             <Entry x:Name="Email" Placeholder="Email Address" Text="{Binding Email}"/>
 
@@ -59,7 +59,7 @@
 
             <Label x:Name="Result"  Text="{Binding Message}"/>
 
-        </StackLayout>-->
+        </StackLayout>
         
     </ScrollView>
 
