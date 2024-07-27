@@ -7,6 +7,16 @@ public partial class AddMemory : ContentPage
 		InitializeComponent();
 	}
 
+    /* Event handler for when the "Upload Image" button is clicked.*/
+
+    /** <param name="sender">The object that triggered the event, typically the button that was clicked.</param>
+     <param name="e">Event arguments related to the click event.</param>
+    
+    
+     This method opens a file picker dialog to allow the user to select an image file.
+    If an image is selected, it is displayed in the `UploadedImage` view.
+    If any error occurs during the image upload, an alert is shown with the error message.
+   **/
     private async void OnUploadImageClicked(object sender, EventArgs e)
     {
         try
@@ -31,6 +41,17 @@ public partial class AddMemory : ContentPage
         }
     }
 
+    /* Event handler for when the "Save" button is clicked. */
+
+    /** <param name="sender">The object that triggered the event, typically the button that was clicked.</param>
+     <param name="e">Event arguments related to the click event.</param>
+    
+    
+    This method checks if both an image and a caption have been provided by the user.
+    If both are present, it simulates saving the memory (e.g., to a database or other storage),
+    displays a confirmation alert to the user, and then clears the input fields and image display.
+    If either the image or caption is missing, it shows an error alert asking the user to provide both.
+    ***/
     private async void OnSaveClicked(object sender, EventArgs e)
     {
         var caption = CaptionEditor.Text;
