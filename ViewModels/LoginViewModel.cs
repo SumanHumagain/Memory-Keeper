@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Diagnostics;
+using Memory_App.Models;
 using Memory_App.Services;
+using System.Diagnostics;
+using Memory_App.Views;
 
 namespace Memory_App.ViewModels
 {
@@ -54,7 +55,8 @@ namespace Memory_App.ViewModels
 
             if (success)
             {
-                //await Shell.Current.GoToAsync($"///{nameof(Views.ActivityListView)}");
+                //await Navigation.PushAsync(new HomePage());
+                await Shell.Current.GoToAsync($"///{nameof(Views.HomePage)}");
             }
         }
 
@@ -65,7 +67,7 @@ namespace Memory_App.ViewModels
 
             if (success)
             {
-                //await Shell.Current.GoToAsync($"///{nameof(Views.ActivityListView)}");
+                await Shell.Current.GoToAsync($"///{nameof(Views.HomePage)}");
             }
 
             //await Shell.Current.GoToAsync($"///{nameof(Views.ActivityDetailsView)}?id={activity.Id}");
