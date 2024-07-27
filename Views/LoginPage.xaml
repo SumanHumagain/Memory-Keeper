@@ -7,7 +7,7 @@
              >
 
     <ScrollView>
-        <!--<VerticalStackLayout
+        <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
@@ -30,24 +30,23 @@
 
             <Entry
                 x:Name="UsernameEntry"
-                Placeholder="Username"
+                Placeholder="Username" Text="{Binding Email}"
                 SemanticProperties.Description="Enter your username" />
 
             <Entry
                 x:Name="PasswordEntry"
                 Placeholder="Password"
-                IsPassword="True"
+                Text="{Binding Password}" IsPassword="True"
                 SemanticProperties.Description="Enter your password" />
 
             <Button
                 x:Name="LoginBtn"
-                Text="Login" 
+                Text="Login"  Command="{Binding SignInCommand}"
                 SemanticProperties.Hint="Login to your account"
-                Clicked="OnLoginClicked"
                 HorizontalOptions="Fill" />
-        </VerticalStackLayout>-->
+        </VerticalStackLayout>
 
-        <StackLayout>
+        <!--<StackLayout>
             <Label Text="Email"/>
             <Entry x:Name="Email" Placeholder="Email Address" Text="{Binding Email}"/>
 
@@ -59,7 +58,7 @@
 
             <Label x:Name="Result"  Text="{Binding Message}"/>
 
-        </StackLayout>
+        </StackLayout>-->
         
     </ScrollView>
 
