@@ -1,4 +1,4 @@
-﻿namespace Memory_App
+﻿namespace Memory_App.Views
 {
     public partial class LoginPage : ContentPage
     {
@@ -10,8 +10,8 @@
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
-            string username = Email.Text;
-            string password = Password.Text;
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
 
             // For demonstration purposes, we'll use hardcoded credentials.
             if (username == "user" && password == "password")

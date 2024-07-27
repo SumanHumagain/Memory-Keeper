@@ -1,4 +1,4 @@
-namespace Memory_App;
+namespace Memory_App.Views;
 
 public partial class AddMemory : ContentPage
 {

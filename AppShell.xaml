@@ -3,7 +3,7 @@
     x:Class="Memory_App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Memory_App"
+    xmlns:local="clr-namespace:Memory_App.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="Memory_App">
 

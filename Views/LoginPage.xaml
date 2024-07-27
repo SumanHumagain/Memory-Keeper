@@ -2,20 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:viewmodels="clr-namespace:Memory_App.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Memory_App.LoginPage"
+             x:Class="Memory_App.Views.LoginPage"
              x:DataType="viewmodels:LoginViewModel"
              >
 
     <ScrollView>
-        <!--<VerticalStackLayout
+        <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
-            --><!--<Label
+            <Label
             Text="Home"
             Style="{StaticResource Headline}"
             SemanticProperties.HeadingLevel="Level1"
-            HorizontalOptions="Center" />--><!--
+            HorizontalOptions="Center" />
             
             <Image
                 Source="login.png"
@@ -45,9 +45,9 @@
                 SemanticProperties.Hint="Login to your account"
                 Clicked="OnLoginClicked"
                 HorizontalOptions="Fill" />
-        </VerticalStackLayout>-->
+        </VerticalStackLayout>
 
-        <StackLayout>
+        <!--<StackLayout>
             <Label Text="Email"/>
             <Entry x:Name="Email" Placeholder="Email Address" Text="{Binding Email}"/>
 
@@ -59,7 +59,7 @@
 
             <Label x:Name="Result"  Text="{Binding Message}"/>
 
-        </StackLayout>
+        </StackLayout>-->
         
     </ScrollView>
 
