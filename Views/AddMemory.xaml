@@ -1,60 +1,110 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Memory_App.Views.AddMemory">
+             xmlns:viewmodels="clr-namespace:Memory_App.ViewModels"
+             x:Class="Memory_App.Views.AddMemory"  
+             x:DataType="viewmodels:AddMemoryViewModel"
+             BackgroundColor="#F8F9FA"
+             Title="Add New">
 
-    <VerticalStackLayout
-        Padding="0"
-        Spacing="25"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="CenterAndExpand">
+    <ContentPage.BindingContext>
+        <viewmodels:AddMemoryViewModel />
+    </ContentPage.BindingContext>
 
-        <Label
-            Text="Add Memory"
-            Padding="0,0,0,150"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            HorizontalOptions="Center" />
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="40,0,0,0"
+            Spacing="15"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
 
-        <Button
-            Text="Upload Image"
-            SemanticProperties.Hint="Upload an image"
-            Clicked="OnUploadImageClicked"
-            WidthRequest="200"
-            Margin="0,0,0,0"
-            HeightRequest="50" />
+            <!-- Page Title -->
+            <Label
+                Text="Add Memory"
+                Padding="0,0,0,60"
+                Style="{StaticResource Headline}"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
 
-        <Image
-            x:Name="UploadedImage"
-            WidthRequest="200"
-            HeightRequest="200"
-            Aspect="AspectFit"
-            IsVisible="False" />
+            <!-- Upload Image Button -->
+            <Button
+                Text="Upload Image"
+                SemanticProperties.Hint="Upload an image"
+                Clicked="OnUploadImageClicked"
+                WidthRequest="250"
+                Margin="0,0,0,20"
+                HeightRequest="50"
+                BackgroundColor="#007BFF"
+                TextColor="White"
+                CornerRadius="25"
+                BorderColor="#0056b3"
+                BorderWidth="1"
+                FontSize="16"/>
 
-        <Frame
-            BorderColor="Gray"
-            CornerRadius="5"
-            Padding="0"
-            HasShadow="False"
-            WidthRequest="300"
-            HeightRequest="120">
+            <!-- Uploaded Image Preview -->
+            <Image
+                x:Name="UploadedImage"
+                Source="{Binding UploadedImage}"
+                WidthRequest="250"
+                HeightRequest="250"
+                Aspect="AspectFill"
+                IsVisible="False"
+                HorizontalOptions="Center"/>
 
-            <Editor
-                x:Name="CaptionEditor"
-                Placeholder="Enter a caption"
-                SemanticProperties.Description="Enter a caption for the memory"
-                BackgroundColor="Transparent"
-                HeightRequest="100"
-                Margin="5"/>
-        </Frame>
+            <!-- Caption Editor -->
+            <Frame
+                BorderColor="LightGray"
+                CornerRadius="10"
+                Padding="10"
+                HasShadow="True"
+                WidthRequest="300"
+                HeightRequest="150">
+                <Editor
+                    x:Name="CaptionEditor"
+                    Placeholder="Enter a caption"
+                    Text="{Binding Caption}"
+                    BackgroundColor="White"
+                    HeightRequest="120"/>
+            </Frame>
 
-        <Button
-            Text="Save"
-            SemanticProperties.Hint="Save the memory"
-            Clicked="OnSaveClicked"
-            WidthRequest="200"
-            HeightRequest="50" />
+            <!-- Location Entry -->
+            <Entry
+                Placeholder="Location"
+                Text="{Binding Location}"
+                BackgroundColor="White"
+                Margin="0,10,0,20"
+                HeightRequest="40"
+                />
 
-    </VerticalStackLayout>
+            <!-- Save and Delete Buttons -->
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Button
+                    Text="Save"
+                    SemanticProperties.Hint="Save the memory"
+                    Command="{Binding AddMemoryCommand}"
+                    WidthRequest="130"
+                    HeightRequest="50"
+                    BackgroundColor="#28a745"
+                    TextColor="White"
+                    CornerRadius="25"
+                    BorderColor="#1e7e34"
+                    BorderWidth="1"
+                    FontSize="16"/>
 
+                <Button
+                    Text="Delete"
+                    SemanticProperties.Hint="Delete the memory"
+                    WidthRequest="130"
+                    HeightRequest="50"
+                    BackgroundColor="#dc3545"
+                    TextColor="White"
+                    CornerRadius="25"
+                    BorderColor="#c82333"
+                    BorderWidth="1"
+                    FontSize="16"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
