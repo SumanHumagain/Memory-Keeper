@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Memory_App.ViewModels"
+             x:Class="Memory_App.Views.ViewAll"
+             xmlns:models="clr-namespace:Memory_App.Models"
+             x:DataType="viewmodels:MemoryListViewModel"
+             Title="All Memories">
+
+
+    <ContentPage.BindingContext>
+        <viewmodels:MemoryListViewModel />
+    </ContentPage.BindingContext>
+    
+    <ScrollView>
+ 
+        <!--<CollectionView ItemsSource="{Binding Memories}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" Padding="10" BorderColor="LightGray">
+                        <StackLayout>
+                            <Image Source="{Binding Image}" HeightRequest="200" Aspect="AspectFit" />
+                            <Label Text="{Binding Caption}" FontSize="Medium" />
+                            <Label Text="{Binding Location}" FontSize="Small" TextColor="Gray" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>-->
+
+        <CollectionView x:Name="ActivitiesCollectionView" 
+                    ItemsSource="{Binding Memories}"
+                    SelectionMode="Single"
+                    SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:MemoryDetail">
+                    <Frame Margin="10" Padding="10" BorderColor="LightGray" CornerRadius="5" HeightRequest="300">
+                        <HorizontalStackLayout Spacing="10" VerticalOptions="FillAndExpand">
+                            <Image Source="{Binding Image}" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" VerticalOptions="Center" />
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Caption}" FontSize="Medium" LineBreakMode="WordWrap" />
+                                <Label Text="{Binding Location}" FontSize="Small" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </ScrollView>
+
+</ContentPage>
