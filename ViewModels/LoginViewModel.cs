@@ -37,9 +37,9 @@ namespace Memory_App.ViewModels
 
         public LoginViewModel()
         {
-                GetCommand = new AsyncRelayCommand(Get);
-                SignInCommand = new AsyncRelayCommand(SignIn);
-                SignUpCommand = new AsyncRelayCommand<Activity>(SignUp);
+            GetCommand = new AsyncRelayCommand(Get);
+            SignInCommand = new AsyncRelayCommand(SignIn);
+            SignUpCommand = new AsyncRelayCommand<Activity>(SignUp);
         }
 
         private async Task Get()
@@ -48,16 +48,12 @@ namespace Memory_App.ViewModels
             //OnPropertyChanged(nameof(Activities));
         }
 
-        private async Task SignIn()
+        public async Task<bool> SignIn()
         {
             var (success, message) = await Authentication.SignInAsync(Email, Password);
             Message = message;
 
-            if (success)
-            {
-                //await Navigation.PushAsync(new HomePage());
-                await Shell.Current.GoToAsync($"///{nameof(Views.HomePage)}");
-            }
+            return success;
         }
 
         private async Task SignUp(Activity activity)
@@ -69,8 +65,6 @@ namespace Memory_App.ViewModels
             {
                 await Shell.Current.GoToAsync($"///{nameof(Views.HomePage)}");
             }
-
-            //await Shell.Current.GoToAsync($"///{nameof(Views.ActivityDetailsView)}?id={activity.Id}");
         }
     }
 }
