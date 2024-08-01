@@ -11,4 +11,8 @@ public partial class HomePage : ContentPage
     {
         await Navigation.PushAsync(new AddMemory());
     }
+    private async void OnViewMemoryClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ViewAll());
+    }
 }

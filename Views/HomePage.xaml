@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Memory_App.Views.HomePage">
- 
+             x:Class="Memory_App.Views.HomePage"
+             BackgroundColor="#F0F2F5">
+
     <VerticalStackLayout
-        Padding="30,30"
-        Spacing="100"
+        Padding="30"
+        Spacing="20"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="CenterAndExpand">
 
+        <!-- Page Title -->
         <Label
-         Text="Home"
-         Margin="0,0,0,0"
-         Style="{StaticResource Headline}"
-         SemanticProperties.HeadingLevel="Level1" />
+            Text="Home"
+            FontSize="36"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            TextColor="#333333"
+            SemanticProperties.HeadingLevel="Level1"/>
 
+        <!-- Button for Adding Memories -->
         <Button
-            Text="Add Memory"
+            Text="Add Memories"
             SemanticProperties.Hint="Add Memory"
             Clicked="OnAddMemoryClicked"
             WidthRequest="300"
-            HeightRequest="60"/>
+            HeightRequest="60"
+            BackgroundColor="#007BFF"
+            TextColor="White"
+            CornerRadius="30"
+            FontSize="18"
+            BorderWidth="1"
+            BorderColor="#0056b3"
+            Padding="10"/>
 
+        <!-- Button for Viewing All Memories -->
         <Button
-            Text="View All"
+            Text="View Memories"
             SemanticProperties.Hint="View All"
+            Clicked="OnViewMemoryClicked"
             WidthRequest="300"
-            HeightRequest="60"/>
+            HeightRequest="60"
+            BackgroundColor="#28a745"
+            TextColor="White"
+            CornerRadius="30"
+            FontSize="18"
+            BorderWidth="1"
+            BorderColor="#1e7e34"
+            Padding="10"/>
 
+        <!-- Button for Searching -->
         <Button
             Text="Search"
             SemanticProperties.Hint="Search"
             WidthRequest="300"
-            HeightRequest="60"/>
+            HeightRequest="60"
+            BackgroundColor="#dc3545"
+            TextColor="White"
+            CornerRadius="30"
+            FontSize="18"
+            BorderWidth="1"
+            BorderColor="#c82333"
+            Padding="10"/>
 
     </VerticalStackLayout>
 
