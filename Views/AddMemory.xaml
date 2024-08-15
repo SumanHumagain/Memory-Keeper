@@ -92,7 +92,7 @@
                     BorderWidth="1"
                     FontSize="16"/>
 
-                <Button
+                <!--<Button
                     Text="Delete"
                     SemanticProperties.Hint="Delete the memory"
                     WidthRequest="130"
@@ -102,7 +102,7 @@
                     CornerRadius="25"
                     BorderColor="#c82333"
                     BorderWidth="1"
-                    FontSize="16"/>
+                    FontSize="16"/>-->
             </HorizontalStackLayout>
 
         </VerticalStackLayout>
