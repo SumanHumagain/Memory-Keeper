@@ -3,16 +3,19 @@
              xmlns:viewmodels="clr-namespace:Memory_App.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Memory_App.Views.LoginPage"
-             x:DataType="viewmodels:LoginViewModel"
-             >
+             x:DataType="viewmodels:LoginViewModel">
 
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel />
+    </ContentPage.BindingContext>
+    
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
             <Label
-            Text="Home"
+            Text="Memory Keeper"
             Style="{StaticResource Headline}"
             SemanticProperties.HeadingLevel="Level1"
             HorizontalOptions="Center" />
@@ -29,20 +32,22 @@
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Entry
-                x:Name="UsernameEntry"
                 Placeholder="Username" Text="{Binding Email}"
                 SemanticProperties.Description="Enter your username" />
 
             <Entry
-                x:Name="PasswordEntry"
                 Placeholder="Password"
                 Text="{Binding Password}" IsPassword="True"
                 SemanticProperties.Description="Enter your password" />
 
             <Button
-                x:Name="LoginBtn"
-                Text="Login"  Command="{Binding SignInCommand}"
+                Text="Login"  Command="{Binding SignInCommand}" Clicked="OnLoginClicked"
                 SemanticProperties.Hint="Login to your account"
+                HorizontalOptions="Fill" />
+
+            <Button
+                Text="Register"  Command="{Binding SignUpCommand}"
+                SemanticProperties.Hint="Create account"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
 
