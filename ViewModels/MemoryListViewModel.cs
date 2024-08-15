@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Firebase.Database;
+using Memory_App.Global;
 using Memory_App.Models;
 
 namespace Memory_App.ViewModels
@@ -18,18 +19,28 @@ namespace Memory_App.ViewModels
             LoadMemories();
         }
 
-        private async void LoadMemories()
+        public async void LoadMemories()
         {
-            var memories = await _firebaseClient.Child("MemoryDetail").OnceAsync<MemoryDetail>();
-            foreach (var memory in memories)
+            // Clear existing memories
+            Memories.Clear();
+
+            string userEmail = GlobalVariable.Email;
+
+            // Fetch all memories
+            var allMemories = await _firebaseClient
+                .Child("MemoryDetail")
+                .OnceAsync<MemoryDetail>();
+
+            // Filter memories by user email
+            var userMemories = allMemories
+                .Where(memory => memory.Object.Email == userEmail)
+                .Select(memory => memory.Object);
+
+            // Add filtered memories to the collection
+            foreach (var memory in userMemories)
             {
-                Memories.Add(memory.Object);
+                Memories.Add(memory);
             }
-            //var memories = d.GetMemories();
-            //foreach (var memory in memories)
-            //{
-            //    Memories.Add(memory.Object);
-            //}
         }
     }
 }
