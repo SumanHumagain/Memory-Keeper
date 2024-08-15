@@ -4,65 +4,110 @@
              x:Class="Memory_App.Views.HomePage"
              BackgroundColor="#F0F2F5">
 
-    <VerticalStackLayout
-        Padding="30"
-        Spacing="20"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="CenterAndExpand">
+    <Grid>
+        <!-- Define the rows and columns for the grid layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- Page Title -->
+        <!-- User Email Label above the Logout Button -->
         <Label
-            Text="Home"
-            FontSize="36"
-            FontAttributes="Bold"
-            HorizontalOptions="Center"
+            x:Name="UserEmailLabel"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="0"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            FontSize="16"
             TextColor="#333333"
-            SemanticProperties.HeadingLevel="Level1"/>
-
-        <!-- Button for Adding Memories -->
-        <Button
-            Text="Add Memories"
-            SemanticProperties.Hint="Add Memory"
-            Clicked="OnAddMemoryClicked"
-            WidthRequest="300"
-            HeightRequest="60"
-            BackgroundColor="#007BFF"
-            TextColor="White"
-            CornerRadius="30"
-            FontSize="18"
-            BorderWidth="1"
-            BorderColor="#0056b3"
             Padding="10"/>
 
-        <!-- Button for Viewing All Memories -->
+        <!-- Logout Button at Top Right Corner -->
         <Button
-            Text="View Memories"
-            SemanticProperties.Hint="View All"
-            Clicked="OnViewMemoryClicked"
-            WidthRequest="300"
-            HeightRequest="60"
-            BackgroundColor="#28a745"
-            TextColor="White"
-            CornerRadius="30"
-            FontSize="18"
-            BorderWidth="1"
-            BorderColor="#1e7e34"
-            Padding="10"/>
-
-        <!-- Button for Searching -->
-        <Button
-            Text="Search"
-            SemanticProperties.Hint="Search"
-            WidthRequest="300"
-            HeightRequest="60"
+            Text="Logout"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="10,50,10,0"
+            WidthRequest="100"
+            HeightRequest="40"
             BackgroundColor="#dc3545"
             TextColor="White"
-            CornerRadius="30"
-            FontSize="18"
+            CornerRadius="20"
+            FontSize="16"
             BorderWidth="1"
             BorderColor="#c82333"
-            Padding="10"/>
+            Clicked="OnLogoutClicked"
+            HorizontalOptions="End"
+            VerticalOptions="Start"/>
 
-    </VerticalStackLayout>
+        <!-- Vertical Stack Layout for Other Content -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="30"
+            Spacing="20"
+            Margin="110,-80,0,0"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
 
+            <!-- Page Title -->
+            <Label
+                Text="Home"
+                FontSize="36"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#333333"
+                SemanticProperties.HeadingLevel="Level1"/>
+
+            <!-- Button for Adding Memories -->
+            <Button
+                Text="Add Memories"
+                SemanticProperties.Hint="Add Memory"
+                Clicked="OnAddMemoryClicked"
+                WidthRequest="300"
+                HeightRequest="60"
+                BackgroundColor="#007BFF"
+                TextColor="White"
+                CornerRadius="30"
+                FontSize="18"
+                BorderWidth="1"
+                BorderColor="#0056b3"
+                Padding="10"/>
+
+            <!-- Button for Viewing All Memories -->
+            <Button
+                Text="View Memories"
+                SemanticProperties.Hint="View All"
+                Clicked="OnViewMemoryClicked"
+                WidthRequest="300"
+                HeightRequest="60"
+                BackgroundColor="#28a745"
+                TextColor="White"
+                CornerRadius="30"
+                FontSize="18"
+                BorderWidth="1"
+                BorderColor="#1e7e34"
+                Padding="10"/>
+
+            <!-- Button for Searching -->
+            <Button
+                Text="Search"
+                SemanticProperties.Hint="Search"
+                Clicked="OnSearchMemoryClicked"
+                WidthRequest="300"
+                HeightRequest="60"
+                BackgroundColor="#dc3545"
+                TextColor="White"
+                CornerRadius="30"
+                FontSize="18"
+                BorderWidth="1"
+                BorderColor="#c82333"
+                Padding="10"/>
+
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
