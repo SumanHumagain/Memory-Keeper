@@ -63,6 +63,7 @@ namespace Memory_App.ViewModels
 
             if (success)
             {
+
                 await Shell.Current.GoToAsync($"///{nameof(Views.HomePage)}");
             }
         }

@@ -16,6 +16,7 @@ using Plugin.Media.Abstractions;
 using Plugin.Media;
 using System.Windows.Input;
 using Microsoft.Maui.Controls;
+using Memory_App.Global;
 
 namespace Memory_App.ViewModels
 {
@@ -44,7 +45,6 @@ namespace Memory_App.ViewModels
             }
         }
 
-        AuthenticationServiceFirebase _asf = new AuthenticationServiceFirebase();
         public IAsyncRelayCommand AddMemoryCommand { get; }
         public AddMemoryViewModel()
         {
@@ -103,6 +103,7 @@ namespace Memory_App.ViewModels
             var imageUrl = await UploadImageToFirebaseStorage(ImageUploaded);
             var memoryDetail = new MemoryDetail
             {
+                Email = GlobalVariable.Email,
                 Location = Location,
                 Caption = Caption,
                 Image = imageUrl,
